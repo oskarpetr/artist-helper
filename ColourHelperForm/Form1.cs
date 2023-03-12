@@ -1,4 +1,5 @@
 using ColourHelperForm.Tools;
+using ColourHelperForm.Forms;
 
 namespace ColourHelperForm {
     public partial class Form1 : Form {
@@ -24,19 +25,26 @@ namespace ColourHelperForm {
                 picture.SizeMode = PictureBoxSizeMode.Zoom;
                 picture.Click += Picture_Click;
 
+                Label label = new();
+                label.Text = Path.GetFileNameWithoutExtension(images[i]);
+                label.Font = new Font("SF Pro Rounded", 10);
+                label.ForeColor = SystemColors.ControlDarkDark;
+                label.Width = 205;
+                label.Location = new Point(x + (i % 3) * 255, y + (i / 3) * 300 + 255);
+
                 Controls.Add(picture);
+                Controls.Add(label);
             }
         }
 
         private void Picture_Click(object? sender, EventArgs e) {
             PictureBox picture = sender as PictureBox;
-            if (picture != null) {
-                MessageBox.Show(Path.GetFileName(picture.ImageLocation));
-            }
+            PaintingForm form = new(picture.ImageLocation);
+            Switch.Screen(form);
         }
 
-        private void _buttonAdd_Click(object sender, EventArgs e) {
-
+        private void _buttonCreate_Click(object sender, EventArgs e) {
+            Switch.Screen(new CreatePaintingForm());
         }
     }
 }

@@ -15,4 +15,6 @@ C:\Users\oskar\source\repos\kyberna\ColourHelperForm\ColourHelperForm\obj\Debug\
 C:\Users\oskar\source\repos\kyberna\ColourHelperForm\ColourHelperForm\obj\Debug\net6.0-windows\ColourHelperForm.pdb
 C:\Users\oskar\source\repos\kyberna\ColourHelperForm\ColourHelperForm\obj\Debug\net6.0-windows\ColourHelperForm.genruntimeconfig.cache
 C:\Users\oskar\source\repos\kyberna\ColourHelperForm\ColourHelperForm\obj\Debug\net6.0-windows\ref\ColourHelperForm.dll
-C:\Users\oskar\source\repos\kyberna\ColourHelperForm\ColourHelperForm\obj\Debug\net6.0-windows\ColourHelperForm.Forms.AddPaintingForm.resources
+C:\Users\oskar\source\repos\kyberna\ColourHelperForm\ColourHelperForm\obj\Debug\net6.0-windows\ColourHelperForm.Forms.PaintingForm.resources
+C:\Users\oskar\source\repos\kyberna\ColourHelperForm\ColourHelperForm\obj\Debug\net6.0-windows\ColourHelperForm.Forms.CreatePaintingForm.resources
+C:\Users\oskar\source\repos\kyberna\ColourHelperForm\ColourHelperForm\obj\Debug\net6.0-windows\ColourHelperForm.Forms.ExportForm.resources

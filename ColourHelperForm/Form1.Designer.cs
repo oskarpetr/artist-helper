@@ -24,7 +24,7 @@
         /// </summary>
         private void InitializeComponent() {
             this.label1 = new System.Windows.Forms.Label();
-            this._buttonAdd = new System.Windows.Forms.Button();
+            this._buttonCreate = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -37,17 +37,17 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Gallery";
             // 
-            // _buttonAdd
+            // _buttonCreate
             // 
-            this._buttonAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this._buttonAdd.Font = new System.Drawing.Font("SF Pro Rounded", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._buttonAdd.Location = new System.Drawing.Point(641, 55);
-            this._buttonAdd.Name = "_buttonAdd";
-            this._buttonAdd.Size = new System.Drawing.Size(127, 29);
-            this._buttonAdd.TabIndex = 1;
-            this._buttonAdd.Text = "Add painting";
-            this._buttonAdd.UseVisualStyleBackColor = true;
-            this._buttonAdd.Click += new System.EventHandler(this._buttonAdd_Click);
+            this._buttonCreate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this._buttonCreate.Font = new System.Drawing.Font("SF Pro Rounded", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this._buttonCreate.Location = new System.Drawing.Point(641, 55);
+            this._buttonCreate.Name = "_buttonCreate";
+            this._buttonCreate.Size = new System.Drawing.Size(89, 29);
+            this._buttonCreate.TabIndex = 1;
+            this._buttonCreate.Text = "Create";
+            this._buttonCreate.UseVisualStyleBackColor = true;
+            this._buttonCreate.Click += new System.EventHandler(this._buttonCreate_Click);
             // 
             // Form1
             // 
@@ -55,10 +55,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(800, 735);
-            this.Controls.Add(this._buttonAdd);
+            this.Controls.Add(this._buttonCreate);
             this.Controls.Add(this.label1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Gallery";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -67,6 +67,6 @@
         #endregion
 
         private Label label1;
-        private Button _buttonAdd;
+        private Button _buttonCreate;
     }
 }

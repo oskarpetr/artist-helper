@@ -18,5 +18,9 @@ namespace ColourHelperForm.Tools {
 
             return images;
         }
+
+        public static void CreatePainting() {
+            // add painting to folder
+        }
     }
 }
