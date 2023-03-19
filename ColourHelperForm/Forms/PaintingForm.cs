@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 using ColourHelperForm.Tools;
 
@@ -26,7 +27,7 @@ namespace ColourHelperForm.Forms {
         }
 
         private void _labelBack_Click(object sender, EventArgs e) {
-            Switch.Screen(new Form1());
+            //Switch.Screen(new Form1());
         }
 
         private void _buttonRemove_Click(object sender, EventArgs e) {
@@ -39,7 +40,18 @@ namespace ColourHelperForm.Forms {
         }
 
         private void _buttonExport_Click(object sender, EventArgs e) {
-            Switch.Screen(new ExportForm(_path));
+            //Switch.Screen(new ExportForm(_path));
+        }
+
+        private void button1_Click(object sender, EventArgs e) {
+            Painting painting = new Painting(Image.FromFile(_path));
+
+            var list = painting.GetColours();
+            var mlList = painting.GetPaintCm(list, 100).ToList();
+
+            for (int i = 0; i < list.Count; i++) {
+                Debug.WriteLine($"{mlList[i].Key}: {mlList[i].Value}");
+            }
         }
     }
 }
