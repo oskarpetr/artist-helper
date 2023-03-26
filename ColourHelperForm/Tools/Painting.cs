@@ -37,8 +37,6 @@ namespace ColourHelperForm.Tools {
         }
 
         public Dictionary<string, double> GetPaintDpi(Dictionary<string, int> list) {
-            // how many ml each colours needs
-
             double mlPerInch = 0.00064515999;
             double mlPerPixel = mlPerInch / _image.VerticalResolution / _image.HorizontalResolution;
 
@@ -52,8 +50,6 @@ namespace ColourHelperForm.Tools {
         }
 
         public Dictionary<string, double> GetPaintCm(Dictionary<string, int> list, double width) {
-            // how many ml each colours needs
-
             double mlPerCm = 0.01;
             double horizontalResolution = _image.Width / width;
             double mlPerPixel = mlPerCm / Math.Pow(horizontalResolution, 2);

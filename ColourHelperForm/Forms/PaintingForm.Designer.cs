@@ -31,7 +31,6 @@
             this._buttonRemove = new System.Windows.Forms.Button();
             this._buttonExport = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this._picturePainting)).BeginInit();
             this.SuspendLayout();
             // 
@@ -123,22 +122,11 @@
             this.label3.TabIndex = 8;
             this.label3.Text = "Crimson — 5ml";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(419, 215);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(94, 29);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // PaintingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this._buttonExport);
             this.Controls.Add(this._buttonRemove);
@@ -165,6 +153,5 @@
         private Button _buttonRemove;
         private Button _buttonExport;
         private Label label3;
-        private Button button1;
     }
 }

@@ -1,5 +1,7 @@
 using ColourHelperForm.Tools;
 using ColourHelperForm.Forms;
+using System.Runtime.Serialization.Formatters.Binary;
+using ColourHelperForm.Models;
 
 namespace ColourHelperForm {
     public partial class Form1 : Form {
