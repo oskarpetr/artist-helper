@@ -81,7 +81,7 @@
             // 
             // _numericWidth
             // 
-            this._numericWidth.Location = new System.Drawing.Point(50, 200);
+            this._numericWidth.Location = new System.Drawing.Point(55, 149);
             this._numericWidth.Name = "_numericWidth";
             this._numericWidth.Size = new System.Drawing.Size(75, 27);
             this._numericWidth.TabIndex = 8;
@@ -98,7 +98,7 @@
             this._labelWidthTitle.AutoSize = true;
             this._labelWidthTitle.Font = new System.Drawing.Font("SF Pro Rounded", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this._labelWidthTitle.ForeColor = System.Drawing.SystemColors.ControlText;
-            this._labelWidthTitle.Location = new System.Drawing.Point(45, 171);
+            this._labelWidthTitle.Location = new System.Drawing.Point(50, 120);
             this._labelWidthTitle.Name = "_labelWidthTitle";
             this._labelWidthTitle.Size = new System.Drawing.Size(124, 21);
             this._labelWidthTitle.TabIndex = 11;
@@ -109,7 +109,7 @@
             // 
             this._labelCm.AutoSize = true;
             this._labelCm.Font = new System.Drawing.Font("SF Pro Rounded", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._labelCm.Location = new System.Drawing.Point(131, 204);
+            this._labelCm.Location = new System.Drawing.Point(136, 153);
             this._labelCm.Name = "_labelCm";
             this._labelCm.Size = new System.Drawing.Size(28, 18);
             this._labelCm.TabIndex = 15;
@@ -133,7 +133,7 @@
             this._labelHeightTitle.AutoSize = true;
             this._labelHeightTitle.Font = new System.Drawing.Font("SF Pro Rounded", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this._labelHeightTitle.ForeColor = System.Drawing.SystemColors.ControlText;
-            this._labelHeightTitle.Location = new System.Drawing.Point(45, 270);
+            this._labelHeightTitle.Location = new System.Drawing.Point(228, 120);
             this._labelHeightTitle.Name = "_labelHeightTitle";
             this._labelHeightTitle.Size = new System.Drawing.Size(151, 21);
             this._labelHeightTitle.TabIndex = 17;
@@ -144,7 +144,7 @@
             // 
             this._labelHeight.AutoSize = true;
             this._labelHeight.Font = new System.Drawing.Font("SF Pro Rounded", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._labelHeight.Location = new System.Drawing.Point(50, 302);
+            this._labelHeight.Location = new System.Drawing.Point(233, 152);
             this._labelHeight.Name = "_labelHeight";
             this._labelHeight.Size = new System.Drawing.Size(40, 18);
             this._labelHeight.TabIndex = 18;
@@ -168,6 +168,7 @@
             this.Controls.Add(this.label1);
             this.Name = "CreatePaintingForm";
             this.Text = "Create painting";
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.CreatePaintingForm_Paint);
             ((System.ComponentModel.ISupportInitialize)(this._picturePainting)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._numericWidth)).EndInit();
             this.ResumeLayout(false);
