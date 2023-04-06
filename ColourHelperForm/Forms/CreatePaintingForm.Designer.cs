@@ -27,14 +27,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this._picturePainting = new System.Windows.Forms.PictureBox();
             this._buttonUpload = new System.Windows.Forms.Button();
-            this._numericWidth = new System.Windows.Forms.NumericUpDown();
             this._labelWidthTitle = new System.Windows.Forms.Label();
-            this._labelCm = new System.Windows.Forms.Label();
             this._buttonCreate = new System.Windows.Forms.Button();
             this._labelHeightTitle = new System.Windows.Forms.Label();
-            this._labelHeight = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this._picturePainting)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this._numericWidth)).BeginInit();
             this.SuspendLayout();
             // 
             // _labelBack
@@ -79,20 +75,6 @@
             this._buttonUpload.UseVisualStyleBackColor = true;
             this._buttonUpload.Click += new System.EventHandler(this._buttonUpload_Click);
             // 
-            // _numericWidth
-            // 
-            this._numericWidth.Location = new System.Drawing.Point(55, 149);
-            this._numericWidth.Name = "_numericWidth";
-            this._numericWidth.Size = new System.Drawing.Size(75, 27);
-            this._numericWidth.TabIndex = 8;
-            this._numericWidth.Value = new decimal(new int[] {
-            50,
-            0,
-            0,
-            0});
-            this._numericWidth.Visible = false;
-            this._numericWidth.ValueChanged += new System.EventHandler(this._numericWidth_ValueChanged);
-            // 
             // _labelWidthTitle
             // 
             this._labelWidthTitle.AutoSize = true;
@@ -104,17 +86,6 @@
             this._labelWidthTitle.TabIndex = 11;
             this._labelWidthTitle.Text = "Custom width";
             this._labelWidthTitle.Visible = false;
-            // 
-            // _labelCm
-            // 
-            this._labelCm.AutoSize = true;
-            this._labelCm.Font = new System.Drawing.Font("SF Pro Rounded", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._labelCm.Location = new System.Drawing.Point(136, 153);
-            this._labelCm.Name = "_labelCm";
-            this._labelCm.Size = new System.Drawing.Size(28, 18);
-            this._labelCm.TabIndex = 15;
-            this._labelCm.Text = "cm";
-            this._labelCm.Visible = false;
             // 
             // _buttonCreate
             // 
@@ -140,28 +111,14 @@
             this._labelHeightTitle.Text = "Automatic height";
             this._labelHeightTitle.Visible = false;
             // 
-            // _labelHeight
-            // 
-            this._labelHeight.AutoSize = true;
-            this._labelHeight.Font = new System.Drawing.Font("SF Pro Rounded", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._labelHeight.Location = new System.Drawing.Point(233, 152);
-            this._labelHeight.Name = "_labelHeight";
-            this._labelHeight.Size = new System.Drawing.Size(40, 18);
-            this._labelHeight.TabIndex = 18;
-            this._labelHeight.Text = "0 cm";
-            this._labelHeight.Visible = false;
-            // 
             // CreatePaintingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this._labelHeight);
             this.Controls.Add(this._labelHeightTitle);
             this.Controls.Add(this._buttonCreate);
-            this.Controls.Add(this._labelCm);
             this.Controls.Add(this._labelWidthTitle);
-            this.Controls.Add(this._numericWidth);
             this.Controls.Add(this._buttonUpload);
             this.Controls.Add(this._picturePainting);
             this.Controls.Add(this._labelBack);
@@ -170,7 +127,6 @@
             this.Text = "Create painting";
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.CreatePaintingForm_Paint);
             ((System.ComponentModel.ISupportInitialize)(this._picturePainting)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this._numericWidth)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -182,11 +138,8 @@
         private Label label1;
         private PictureBox _picturePainting;
         private Button _buttonUpload;
-        private NumericUpDown _numericWidth;
         private Label _labelWidthTitle;
-        private Label _labelCm;
         private Button _buttonCreate;
         private Label _labelHeightTitle;
-        private Label _labelHeight;
     }
 }

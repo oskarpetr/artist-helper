@@ -45,9 +45,7 @@ namespace ColourHelperForm.Tools {
         public static void AddDetail(string name, int width, Dictionary<string, double> colours) {
             List<Detail> details = GetDetails();
 
-            details.Add(new Detail() {
-                Name = name, Width = width, Colours = colours
-            });
+            details.Add(new Detail() { Name = name, Width = width, Colours = colours });
 
             using (var stream = File.Open(DETAILS, FileMode.Open)) {
                 BinaryFormatter formatter = new();

@@ -18,3 +18,5 @@ C:\Users\oskar\source\repos\kyberna\ColourHelperForm\ColourHelperForm\obj\Debug\
 C:\Users\oskar\source\repos\kyberna\ColourHelperForm\ColourHelperForm\obj\Debug\net6.0-windows\ColourHelperForm.Forms.PaintingForm.resources
 C:\Users\oskar\source\repos\kyberna\ColourHelperForm\ColourHelperForm\obj\Debug\net6.0-windows\ColourHelperForm.Forms.CreatePaintingForm.resources
 C:\Users\oskar\source\repos\kyberna\ColourHelperForm\ColourHelperForm\obj\Debug\net6.0-windows\ColourHelperForm.Forms.ExportForm.resources
+C:\Users\oskar\source\repos\kyberna\ColourHelperForm\ColourHelperForm\obj\Debug\net6.0-windows\ColourHelperForm.Components.Histogram.resources
+C:\Users\oskar\source\repos\kyberna\ColourHelperForm\ColourHelperForm\obj\Debug\net6.0-windows\ColourHelperForm.Components.Input.resources

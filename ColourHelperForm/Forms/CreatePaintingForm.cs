@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using ColourHelperForm.Tools;
+using ColourHelperForm.Components;
 
 namespace ColourHelperForm.Forms {
     public partial class CreatePaintingForm : Form {
@@ -17,6 +18,8 @@ namespace ColourHelperForm.Forms {
 
         public CreatePaintingForm() {
             InitializeComponent();
+
+            Inputs();
         }
 
         private void _labelBack_Click(object sender, EventArgs e) {
@@ -36,11 +39,10 @@ namespace ColourHelperForm.Forms {
 
                 CalculateHeight();
 
+                width.SetVisibility(true);
+                height.SetVisibility(true);
                 _labelWidthTitle.Visible = true;
-                _numericWidth.Visible = true;
-                _labelCm.Visible = true;
                 _labelHeightTitle.Visible = true;
-                _labelHeight.Visible = true;
                 _buttonCreate.Visible = true;
             }
         }
@@ -49,73 +51,60 @@ namespace ColourHelperForm.Forms {
             CalculateHeight();
         }
 
-        private void CalculateHeight() {
-            Image image = Image.FromFile(_path);
-            float height = (float)(_numericWidth.Value * image.Height) / image.Width;
-            _labelHeight.Text = $"{Math.Round(height, 2)} cm";
-        }
-
         private void _buttonCreate_Click(object sender, EventArgs e) { 
             Painting painting = new(Image.FromFile(_path));
             Dictionary<string, int> colours = painting.GetColours();
-            Dictionary<string, double> ml = painting.GetPaintCm(colours, (double)_numericWidth.Value);
+            Dictionary<string, double> ml = painting.GetPaintCm(colours, (double)width.GetValue());
 
-            Files.CreatePainting(_path, (int)_numericWidth.Value, ml);
+            Files.CreatePainting(_path, (int)width.GetValue(), ml);
             Switch.Screen(new Form1());
         }
 
-        private void _panelHistogram_Paint(object sender, PaintEventArgs e) {
-            
-        }
-
-        private float HISTOGRAM_HEIGHT = 140;
-        private Size HISTOGRAM_LOC = new(55, 220);
         private void CreatePaintingForm_Paint(object sender, PaintEventArgs e) {
             if (_selected) {
                 Graphics g = e.Graphics;
-                Bitmap bitmap = new(Image.FromFile(_path));
 
-                Dictionary<int, int> red = new();
-                Dictionary<int, int> green = new();
-                Dictionary<int, int> blue = new();
-
-                for (int i = 0; i < 256; i++) {
-                    red.Add(i, 0); green.Add(i, 0); blue.Add(i, 0);
-                }
-
-                for (int i = 0; i < bitmap.Width; i++) {
-                    for (int j = 0; j < bitmap.Height; j++) {
-                        red[bitmap.GetPixel(i, j).R] += 1;
-                        green[bitmap.GetPixel(i, j).G] += 1;
-                        blue[bitmap.GetPixel(i, j).B] += 1;
-                    }
-                }
-
-                List<PointF> r_points = new();
-                List<PointF> g_points = new();
-                List<PointF> b_points = new();
-
-                int r_max = red.Values.Max();
-                int g_max = green.Values.Max();
-                int b_max = blue.Values.Max();
-
-                float current = 1.25f;
-                for (int i = 0; i < 256; i++) {
-                    float r_point = ((float)red[i] / r_max) * HISTOGRAM_HEIGHT;
-                    float g_point = ((float)green[i] / g_max) * HISTOGRAM_HEIGHT;
-                    float b_point = ((float)blue[i] / b_max) * HISTOGRAM_HEIGHT;
-
-                    r_points.Add(new PointF(current + HISTOGRAM_LOC.Width, Math.Abs(r_point - HISTOGRAM_HEIGHT) + HISTOGRAM_LOC.Height));
-                    g_points.Add(new PointF(current + HISTOGRAM_LOC.Width, Math.Abs(g_point - HISTOGRAM_HEIGHT) + HISTOGRAM_LOC.Height));
-                    b_points.Add(new PointF(current + HISTOGRAM_LOC.Width, Math.Abs(b_point - HISTOGRAM_HEIGHT) + HISTOGRAM_LOC.Height));
-
-                    current += 1.25f;
-                }
-
-                g.DrawCurve(Pens.Red, r_points.ToArray());
-                g.DrawCurve(Pens.Green, g_points.ToArray());
-                g.DrawCurve(Pens.Blue, b_points.ToArray());
+                Histogram histogram = new(g, _path, 55, 220);
+                Controls.Add(histogram);
             }
+        }
+
+        private void Inputs() {
+            width.Location = new Point(55, 149);
+            width.OnValueChanged += Width_OnValueChanged;
+
+            height.Location = new Point(233, 152);
+            height.OnValueChanged += Height_OnValueChanged;
+
+            Controls.Add(width);
+            Controls.Add(height);
+        }
+
+        Input width = new();
+        Input height = new();
+
+        private void Width_OnValueChanged() {
+            CalculateHeight();
+        }
+
+        private void Height_OnValueChanged() {
+            CalculateWidth();
+        }
+
+        private void CalculateHeight() {
+            Image image = Image.FromFile(_path);
+            float h = (float)(width.GetValue() * image.Height) / image.Width;
+
+            height.SetValue((int)h);
+            width.SetValue(width.GetValue());
+        }
+
+        private void CalculateWidth() {
+            Image image = Image.FromFile(_path);
+            float w = (float)(height.GetValue() * image.Width) / image.Height;
+
+            width.SetValue((int)w);
+            height.SetValue(height.GetValue());
         }
     }
 }
