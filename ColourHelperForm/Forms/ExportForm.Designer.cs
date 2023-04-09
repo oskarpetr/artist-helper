@@ -25,6 +25,12 @@
         private void InitializeComponent() {
             this.label1 = new System.Windows.Forms.Label();
             this._labelBack = new System.Windows.Forms.Label();
+            this._comboBox = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this._buttonSelect = new System.Windows.Forms.Button();
+            this._labelPath = new System.Windows.Forms.Label();
+            this._buttonExport = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -49,11 +55,78 @@
             this._labelBack.Text = "< Back";
             this._labelBack.Click += new System.EventHandler(this._labelBack_Click);
             // 
+            // _comboBox
+            // 
+            this._comboBox.FormattingEnabled = true;
+            this._comboBox.Items.AddRange(new object[] {
+            "JSON",
+            "Plain text"});
+            this._comboBox.Location = new System.Drawing.Point(50, 146);
+            this._comboBox.Name = "_comboBox";
+            this._comboBox.Size = new System.Drawing.Size(151, 28);
+            this._comboBox.TabIndex = 8;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("SF Pro Rounded", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(50, 120);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(97, 20);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Export type";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("SF Pro Rounded", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(249, 120);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(98, 20);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "Export path";
+            // 
+            // _buttonSelect
+            // 
+            this._buttonSelect.Location = new System.Drawing.Point(249, 145);
+            this._buttonSelect.Name = "_buttonSelect";
+            this._buttonSelect.Size = new System.Drawing.Size(142, 29);
+            this._buttonSelect.TabIndex = 11;
+            this._buttonSelect.Text = "Select";
+            this._buttonSelect.UseVisualStyleBackColor = true;
+            this._buttonSelect.Click += new System.EventHandler(this._buttonSelect_Click);
+            // 
+            // _labelPath
+            // 
+            this._labelPath.AutoSize = true;
+            this._labelPath.Font = new System.Drawing.Font("SF Pro Rounded", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this._labelPath.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this._labelPath.Location = new System.Drawing.Point(403, 154);
+            this._labelPath.Name = "_labelPath";
+            this._labelPath.Size = new System.Drawing.Size(0, 20);
+            this._labelPath.TabIndex = 12;
+            // 
+            // _buttonExport
+            // 
+            this._buttonExport.Location = new System.Drawing.Point(50, 250);
+            this._buttonExport.Name = "_buttonExport";
+            this._buttonExport.Size = new System.Drawing.Size(128, 29);
+            this._buttonExport.TabIndex = 13;
+            this._buttonExport.Text = "Export data";
+            this._buttonExport.UseVisualStyleBackColor = true;
+            this._buttonExport.Click += new System.EventHandler(this._buttonExport_Click);
+            // 
             // ExportForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 328);
+            this.Controls.Add(this._buttonExport);
+            this.Controls.Add(this._labelPath);
+            this.Controls.Add(this._buttonSelect);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this._comboBox);
             this.Controls.Add(this._labelBack);
             this.Controls.Add(this.label1);
             this.Name = "ExportForm";
@@ -66,5 +139,11 @@
         #endregion
         private Label label1;
         private Label _labelBack;
+        private ComboBox _comboBox;
+        private Label label2;
+        private Label label3;
+        private Button _buttonSelect;
+        private Label _labelPath;
+        private Button _buttonExport;
     }
 }

@@ -4,7 +4,6 @@ using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
-
 using ColourHelperForm.Models;
 
 namespace ColourHelperForm.Tools {
@@ -38,6 +37,7 @@ namespace ColourHelperForm.Tools {
         public static List<Detail> GetDetails() {
             using (var stream = File.Open(DETAILS, FileMode.Open)) {
                 BinaryFormatter formatter = new();
+
                 return (List<Detail>)formatter.Deserialize(stream);
             }
         }
@@ -63,6 +63,15 @@ namespace ColourHelperForm.Tools {
                 BinaryFormatter formatter = new();
                 formatter.Serialize(stream, details);
             }
+        }
+
+        public static Detail GetDetail(string name) {
+            List<Detail> details = GetDetails();
+            return details.FirstOrDefault(detail => detail.Name == name);
+        }
+
+        public static void Export(List<string> content, string path) {
+            File.AppendAllLines(path, content);
         }
     }
 }
