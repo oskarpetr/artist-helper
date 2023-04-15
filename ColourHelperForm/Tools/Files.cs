@@ -22,10 +22,10 @@ namespace ColourHelperForm.Tools {
             return images;
         }
 
-        public static void CreatePainting(string path, int width, Dictionary<string, double> colours) {
+        public static void CreatePainting(string path, int width, int height, Dictionary<string, double> colours) {
             File.Copy(path, $"Paintings/{Path.GetFileName(path)}");
 
-            AddDetail(Path.GetFileNameWithoutExtension(path), width, colours);
+            AddDetail(Path.GetFileNameWithoutExtension(path), width, height, colours);
         }
 
         public static void RemovePainting(string name) {
@@ -35,17 +35,17 @@ namespace ColourHelperForm.Tools {
         }
 
         public static List<Detail> GetDetails() {
-            using (var stream = File.Open(DETAILS, FileMode.Open)) {
+            using (var stream = File.Open(DETAILS, FileMode.OpenOrCreate)) {
                 BinaryFormatter formatter = new();
 
                 return (List<Detail>)formatter.Deserialize(stream);
             }
         }
 
-        public static void AddDetail(string name, int width, Dictionary<string, double> colours) {
+        public static void AddDetail(string name, int width, int height, Dictionary<string, double> colours) {
             List<Detail> details = GetDetails();
 
-            details.Add(new Detail() { Name = name, Width = width, Colours = colours });
+            details.Add(new Detail() { Name = name, Width = width, Height = height, Colours = colours });
 
             using (var stream = File.Open(DETAILS, FileMode.Open)) {
                 BinaryFormatter formatter = new();
@@ -73,5 +73,12 @@ namespace ColourHelperForm.Tools {
         public static void Export(List<string> content, string path) {
             File.AppendAllLines(path, content);
         }
+
+        /*public static void Lol() {
+            using (var stream = File.Open(DETAILS, FileMode.OpenOrCreate)) {
+                BinaryFormatter formatter = new();
+                formatter.Serialize(stream, new List<Detail>() { });
+            }
+        }*/
     }
 }

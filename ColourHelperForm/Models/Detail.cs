@@ -9,6 +9,7 @@ namespace ColourHelperForm.Models {
     public class Detail {
         public string Name { get; set; }
         public int Width { get; set; }
+        public int Height { get; set; }
         public Dictionary<string, double> Colours { get; set; }
     }
 }

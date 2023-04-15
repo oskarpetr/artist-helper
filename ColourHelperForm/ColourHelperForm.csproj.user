@@ -19,5 +19,8 @@
     <Compile Update="Forms\PaintingForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\VisualForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

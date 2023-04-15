@@ -26,11 +26,11 @@
             this._labelName = new System.Windows.Forms.Label();
             this._picturePainting = new System.Windows.Forms.PictureBox();
             this._labelBack = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this._labelColours = new System.Windows.Forms.Label();
             this._buttonRemove = new System.Windows.Forms.Button();
             this._buttonExport = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
+            this._labelSize = new System.Windows.Forms.Label();
+            this._buttonVisual = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this._picturePainting)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,9 +46,10 @@
             // 
             // _picturePainting
             // 
-            this._picturePainting.Location = new System.Drawing.Point(50, 120);
+            this._picturePainting.BackColor = System.Drawing.SystemColors.Control;
+            this._picturePainting.Location = new System.Drawing.Point(50, 160);
             this._picturePainting.Name = "_picturePainting";
-            this._picturePainting.Size = new System.Drawing.Size(300, 300);
+            this._picturePainting.Size = new System.Drawing.Size(300, 302);
             this._picturePainting.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this._picturePainting.TabIndex = 2;
             this._picturePainting.TabStop = false;
@@ -65,27 +66,16 @@
             this._labelBack.Text = "< Back";
             this._labelBack.Click += new System.EventHandler(this._labelBack_Click);
             // 
-            // label1
+            // _labelColours
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("SF Pro Rounded", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label1.Location = new System.Drawing.Point(379, 120);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(73, 21);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Colours";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("SF Pro Rounded", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label2.Location = new System.Drawing.Point(379, 146);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(104, 21);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Cyan — 3ml";
+            this._labelColours.AutoSize = true;
+            this._labelColours.Font = new System.Drawing.Font("SF Pro Rounded", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this._labelColours.ForeColor = System.Drawing.SystemColors.ControlText;
+            this._labelColours.Location = new System.Drawing.Point(379, 160);
+            this._labelColours.Name = "_labelColours";
+            this._labelColours.Size = new System.Drawing.Size(73, 21);
+            this._labelColours.TabIndex = 4;
+            this._labelColours.Text = "Colours";
             // 
             // _buttonRemove
             // 
@@ -111,27 +101,42 @@
             this._buttonExport.UseVisualStyleBackColor = true;
             this._buttonExport.Click += new System.EventHandler(this._buttonExport_Click);
             // 
-            // label3
+            // _labelSize
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("SF Pro Rounded", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label3.Location = new System.Drawing.Point(379, 172);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(128, 21);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Crimson — 5ml";
+            this._labelSize.AutoSize = true;
+            this._labelSize.BackColor = System.Drawing.SystemColors.Control;
+            this._labelSize.Font = new System.Drawing.Font("SF Pro Rounded", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this._labelSize.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this._labelSize.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this._labelSize.Location = new System.Drawing.Point(50, 96);
+            this._labelSize.Name = "_labelSize";
+            this._labelSize.Size = new System.Drawing.Size(42, 21);
+            this._labelSize.TabIndex = 8;
+            this._labelSize.Text = "Size";
+            this._labelSize.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // _buttonVisual
+            // 
+            this._buttonVisual.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this._buttonVisual.Font = new System.Drawing.Font("SF Pro Rounded", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this._buttonVisual.Location = new System.Drawing.Point(379, 431);
+            this._buttonVisual.Name = "_buttonVisual";
+            this._buttonVisual.Size = new System.Drawing.Size(89, 31);
+            this._buttonVisual.TabIndex = 9;
+            this._buttonVisual.Text = "Visual";
+            this._buttonVisual.UseVisualStyleBackColor = true;
+            this._buttonVisual.Click += new System.EventHandler(this._buttonVisual_Click);
             // 
             // PaintingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label3);
+            this.ClientSize = new System.Drawing.Size(800, 507);
+            this.Controls.Add(this._buttonVisual);
+            this.Controls.Add(this._labelSize);
             this.Controls.Add(this._buttonExport);
             this.Controls.Add(this._buttonRemove);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this._labelColours);
             this.Controls.Add(this._labelBack);
             this.Controls.Add(this._picturePainting);
             this.Controls.Add(this._labelName);
@@ -148,10 +153,12 @@
         private Label _labelName;
         private PictureBox _picturePainting;
         private Label _labelBack;
-        private Label label1;
+        private Label _labelColours;
         private Label label2;
         private Button _buttonRemove;
         private Button _buttonExport;
         private Label label3;
+        private Label _labelSize;
+        private Button _buttonVisual;
     }
 }

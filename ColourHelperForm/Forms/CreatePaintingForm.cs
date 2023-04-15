@@ -56,7 +56,7 @@ namespace ColourHelperForm.Forms {
             Dictionary<string, int> colours = painting.GetColours();
             Dictionary<string, double> ml = painting.GetPaintCm(colours, (double)width.GetValue());
 
-            Files.CreatePainting(_path, (int)width.GetValue(), ml);
+            Files.CreatePainting(_path, (int)width.GetValue(), (int)height.GetValue(), ml);
             Switch.Screen(new Form1());
         }
 
