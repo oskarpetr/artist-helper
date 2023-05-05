@@ -74,7 +74,14 @@ namespace ColourHelperForm.Tools {
             File.AppendAllLines(path, content);
         }
 
-        /*public static void Lol() {
+        public static string GetPath(string name) {
+            List<string> images = GetPaintings();
+            string path = images.FirstOrDefault(e => Path.GetFileNameWithoutExtension(e) == name);
+
+            return path;
+        }
+
+        /*public static void Initialize() {
             using (var stream = File.Open(DETAILS, FileMode.OpenOrCreate)) {
                 BinaryFormatter formatter = new();
                 formatter.Serialize(stream, new List<Detail>() { });
