@@ -5,8 +5,12 @@ using ColourHelperForm.Models;
 
 namespace ColourHelperForm {
     public partial class Form1 : Form {
-        public Form1() {
+        public Form1(bool remove = true) {
             InitializeComponent();
+
+            if(remove) {
+                Files.RemovePaintings();
+            }
 
             LoadPaintings();
         }

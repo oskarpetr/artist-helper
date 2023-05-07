@@ -82,8 +82,8 @@ namespace ColourHelperForm.Forms {
                 MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             if(result == DialogResult.Yes) {
-                Files.RemovePainting(Path.GetFileName(_path));
-                Switch.Screen(new Form1());
+                Files.RemoveDetail(Path.GetFileNameWithoutExtension(_path));
+                Switch.Screen(new Form1(false));
             }
         }
 

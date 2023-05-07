@@ -14,9 +14,9 @@ namespace ColourHelperForm.Tools {
         public static List<string> GetPaintings() {
             List<string> images = new();
 
-            string[] files = Directory.GetFiles(PAINTINGS);
-            foreach (string file in files) {
-                images.Add(file);
+            List<Detail> details = GetDetails();
+            foreach (Detail detail in details) {
+                images.Add(GetPath(detail.Name));
             }
 
             return images;
@@ -28,10 +28,26 @@ namespace ColourHelperForm.Tools {
             AddDetail(Path.GetFileNameWithoutExtension(path), width, height, colours);
         }
 
-        public static void RemovePainting(string name) {
-            File.Delete($"Paintings/{name}");
+        public static void RemovePaintings() {
+            List<Detail> details = GetDetails();
+            List<string> names = new();
 
-            RemoveDetail(name);
+            foreach (Detail detail in details) {
+                names.Add(detail.Name);
+            }
+
+            string[] files = Directory.GetFiles(PAINTINGS);
+            List<string> fileNames = new();
+
+            foreach (string file in files) {
+                fileNames.Add(Path.GetFileNameWithoutExtension(file));
+            }
+
+            for (int i = 0; i < fileNames.Count; i++) {
+                if(!names.Contains(fileNames[i]) && File.Exists(files[i])) {
+                    File.Delete(files[i]);
+                }
+            }
         }
 
         public static List<Detail> GetDetails() {
@@ -56,7 +72,7 @@ namespace ColourHelperForm.Tools {
         public static void RemoveDetail(string name) {
             List<Detail> details = GetDetails();
 
-            Detail detail = details.FirstOrDefault(detail => detail.Name == name);
+            Detail detail = details.Find(detail => detail.Name == name);
             details.Remove(detail);
 
             using (var stream = File.Open(DETAILS, FileMode.Open)) {
@@ -75,7 +91,7 @@ namespace ColourHelperForm.Tools {
         }
 
         public static string GetPath(string name) {
-            List<string> images = GetPaintings();
+            string[] images = Directory.GetFiles(PAINTINGS);
             string path = images.FirstOrDefault(e => Path.GetFileNameWithoutExtension(e) == name);
 
             return path;
