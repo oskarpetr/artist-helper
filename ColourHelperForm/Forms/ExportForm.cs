@@ -50,6 +50,8 @@ namespace ColourHelperForm.Forms {
             } else if(_comboBox.SelectedIndex == 1) {
                 Files.Export(Exporter.ToText(_detail.Colours), $"{_destination}.txt");
             }
+
+            Switch.Screen(new PaintingForm(_path));
         }
     }
 }
